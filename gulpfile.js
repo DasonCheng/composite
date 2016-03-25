@@ -10,7 +10,8 @@ var del = require('del');
 var paths = {
     js: 'src/js/*.js',
     sass: 'src/sass/*.scss',
-    img: 'src/imgs/*'
+    img: 'src/imgs/*',
+    jade:'views/*.jade'
 };
 gulp.task('clean', function() {
     return del(['build']);
@@ -36,21 +37,23 @@ gulp.task('img', function() {
 gulp.task('sass', function() {
     gulp.src(paths.sass)
         .pipe(sass({ outputStyle: 'compressed' }).on('error', sass.logError))
+        .pipe(rename(function(path) {
+            path.basename += ".min";
+        }))
         .pipe(gulp.dest('public/css'));
 });
-/*gulp.task('jade'function() {
-    gulp.src('./views/*.jade')
+
+gulp.task('jade',function() {
+    gulp.src(paths.jade)
         .pipe(jade({ pretty: true }))
-        .pipe(gulp.dest('./'));
+        .pipe(gulp.dest('public'));
 });
-gulp.task('watch-jade', function() {
-    gulp.watch('./views/*.jade', ['jade']);
-});*/
 
 gulp.task('watch', function() {
     gulp.watch(paths.js, ['js']);
     gulp.watch(paths.sass, ['sass']);
     gulp.watch(paths.img, ['img']);
+    gulp.watch(paths.jade, ['jade']);
 });
 
 

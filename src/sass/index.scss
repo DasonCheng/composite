@@ -1,0 +1,346 @@
+@import "global";
+.sliderBanner {
+    position: relative;
+    margin-bottom: 0;
+    overflow: hidden;
+    ol {
+        position: absolute;
+        left: 50%;
+        bottom: 10px;
+        z-index: 15;
+        width: 60%;
+        padding: 0;
+        margin-left: -30%;
+        margin-bottom: 0;
+        text-align: center;
+        list-style: none;
+        li {
+            display: inline-block;
+            width: 8px;
+            height: 8px;
+            margin: 1px;
+            text-indent: -999px;
+            cursor: pointer;
+            background-color: rgba(0, 0, 0, 0);
+            border: 1px solid #fff;
+            border-radius: 10px;
+            &.active {
+                width: 10px;
+                height: 10px;
+                margin: 0;
+                background-color: rgba(255, 255, 255, 1);
+            }
+        }
+    }
+    ul {
+        position: relative;
+        width: 100%;
+        padding: 0;
+        margin: 0;
+        li {
+            display: none;
+            width: 100%;
+            a {
+                display: block;
+                width: 100%;
+                img {
+                    display: block;
+                    width: 100%;
+                }
+            }
+            &.prev {
+                display: block;
+                position: absolute;
+                top: 0;
+                left: -100%;
+            }
+            &.active {
+                display: block;
+            }
+            &.next {
+                display: block;
+                position: absolute;
+                top: 0;
+                left: 100%;
+            }
+        }
+    }
+}
+
+.menu {
+    margin-bottom: 10px;
+    background-color: #fff;
+    box-shadow: 0 0 2px 0 rgba(0, 0, 0, .1);
+    overflow: hidden;
+    div {
+        width: 133.33%;
+        transform: translate3D(0, 0, 0)
+    }
+    a {
+        display: inline-block;
+        width: 16.66666%;
+        padding: 16px 0 10px 0;
+        text-align: center;
+        text-decoration: none;
+        span {
+            display: inline-block;
+            width: 42px;
+            height: 42px;
+            border-radius: 100px;
+        }
+        &:nth-child(1) span {
+            background: url(../imgs/cosmetics@2x.png) no-repeat center center;
+            background-size: 100% 100%;
+        }
+        &:nth-child(2) span {
+            background: url(../imgs/Cleaning@2x.png) no-repeat center center;
+            background-size: 100% 100%;
+        }
+        &:nth-child(3) span {
+            background: url(../imgs/fragrance@2x.png) no-repeat center center;
+            background-size: 100% 100%;
+        }
+        &:nth-child(4) span {
+            background: url(../imgs/bodycare@2x.png) no-repeat center center;
+            background-size: 100% 100%;
+        }
+        &:nth-child(5) span {
+            background: url(../imgs/health@2x.png) no-repeat center center;
+            background-size: 100% 100%;
+        }
+        &:nth-child(6) span {
+            background: url(../imgs/hot@2x.png) no-repeat center center;
+            background-size: 100% 100%;
+        }
+        p {
+            margin-bottom: 0;
+            color: #666;
+            font-size: 1.4rem;
+        }
+    }
+}
+
+.area {
+    background-color: #fff;
+    box-shadow: 0 0 2px 0 rgba(0, 0, 0, .1);
+    a {
+        display: block;
+        padding: 14px 0;
+        overflow: hidden;
+        .korea {
+            position: relative;
+            width: 210px;
+            height: 56px;
+            padding-right: 40px;
+            margin: 0 auto;
+            img {
+                position: absolute;
+                top: 0;
+                right: 0;
+                display: block;
+                width: 32px;
+                height: 56px;
+            }
+            h3 {
+                margin-top: 0;
+                margin-bottom: 0;
+                font-weight: normal;
+                font-size: 1.7rem;
+                color: #333;
+            }
+            p {
+                padding-top: 8px;
+                margin-bottom: 8px;
+                font-size: 1rem;
+                color: $default-color;
+            }
+        }
+        .japan {
+            width: 130px;
+            height: 40px;
+            margin: 0 auto;
+            img {
+                float: left;
+                height: 40px;
+            }
+            h3 {
+                margin-left: 35px;
+                margin-top: 0;
+                margin-bottom: 0;
+                font-weight: normal;
+                font-size: 1.4rem;
+                color: #333;
+            }
+            p {
+                margin-left: 35px;
+                padding-top: 2px;
+                margin-bottom: 5px;
+                font-size: 1rem;
+                color: $default-color;
+            }
+        }
+        .australia {
+            width: 145px;
+            height: 40px;
+            margin: 0 auto;
+            img {
+                float: left;
+                height: 40px;
+            }
+            h3 {
+                margin-left: 48px;
+                margin-top: 0;
+                margin-bottom: 0;
+                font-weight: normal;
+                font-size: 1.4rem;
+                color: #333;
+            }
+            p {
+                margin-left: 48px;
+                padding-top: 2px;
+                margin-bottom: 5px;
+                font-size: 1rem;
+                color: $default-color;
+            }
+        }
+        &:nth-child(1) {
+            border-bottom: 1px solid #f2f2f2;
+        }
+        &:nth-child(2) {
+            border-right: 1px solid #f2f2f2;
+        }
+    }
+}
+
+.broad-con {
+    height: 36px;
+    padding: 0 1rem 0 3.6rem;
+    margin-top: 0;
+    margin-bottom: 0;
+    font-size: 1.6rem;
+    line-height: 36px;
+    color: #333;
+    white-space: nowrap;
+    overflow: hidden;    
+}
+.broad-korea {
+    background: url(../imgs/korea-icon@2x.png) no-repeat 10px center;
+    background-size: auto 50%;
+}
+.broad-japan {
+    background: url(../imgs/japan-icon@2x.png) no-repeat 10px center;
+    background-size: auto 50%;
+}
+.broad-australia {
+    background: url(../imgs/australia-icon@2x.png) no-repeat 10px center;
+    background-size: auto 40%;
+}
+
+.goods-list {
+    a {
+        display: block;
+        text-decoration: none;
+        &:nth-child(2n+1) {
+            padding-right: 1px;
+            padding-left: 10px;
+        }
+        &:nth-child(2n) {
+            padding-right: 10px;
+            padding-left: 1px;
+        }
+        dl {
+            margin-bottom: .2rem;
+            border: 1px solid #f2f2f2;
+            background-color: #fff;
+            dt {
+                position: relative;
+                padding: 1rem 0;
+                text-align: center;
+                img {
+                    display: block;
+                    width: 120px;
+                    height: 120px;
+                    margin: 0 auto;
+                }
+                &.sell-out:before {
+                    content: "sold out";
+                    position: absolute;
+                    top: 50%;
+                    left: 50%;
+                    width: 80px;
+                    height: 80px;
+                    margin-top: -40px;
+                    margin-left: -40px;
+                    border-radius: 80px;
+                    text-align: center;
+                    line-height: 80px;
+                    font-size: 1.4rem;
+                    color: #fff;
+                    background-color: rgba(0, 0, 0, .7);
+                }
+            }
+            dd {
+                h3 {
+                    position: relative;
+                    padding: 0 1rem;
+                    margin-top: 0;
+                    margin-bottom: 1rem;
+                    strong {
+                        display: block;
+                        height: 40px;
+                        font-size: 1.4rem;
+                        font-weight: normal;
+                        line-height: 2rem;
+                        color: #333;
+                        overflow: hidden;
+                    }
+                    &:before {
+                        content: '';
+                        position: absolute;
+                        bottom: -10px;
+                        left: 1rem;
+                        right: 1rem;
+                        height: 1px;
+                        background-color: #f2f2f2;
+                    }
+                }
+                &>strong {
+                    position: relative;
+                    left: -3px;
+                    display: inline-block;
+                    max-width: 30%;
+                    height: 30px;
+                    padding-left: 1rem;
+                    line-height: 30px;
+                    font-size: 1.6rem;
+                    font-weight: bold;
+                    color: #666;
+                }
+                &>span {
+                    display: block;
+                    float: right;
+                    max-width: 70%;
+                    height: 30px;
+                    padding-right: 1rem;
+                    line-height: 30px;
+                    white-space: nowrap;
+                    overflow: hidden;
+                    i {
+                        padding: 0 3px;
+                        color: #fff;
+                        font-size: 1.2rem;
+                        font-style: normal;
+                        border-radius: 2px;
+                        background-color: $default-color;
+                    }
+                    em {
+                        font-style: normal;
+                        color: $default-color;
+                        font-size: 1.6rem;
+                        font-weight: bold;
+                    }
+                }
+            }
+        }
+    }
+}

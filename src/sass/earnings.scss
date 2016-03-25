@@ -1,0 +1,110 @@
+@import "global";
+header {
+    margin-bottom: 10px;
+    color: #fff;
+    background-color: $default-color;
+    box-shadow: 0 0 5px 0 #ccc;
+    dl {
+        padding-top: 36px;
+        padding-bottom: 32px;
+        margin-bottom: 0;
+        text-align: center;
+        img {
+            width: 36px;
+        }
+        h3 {
+            font-size: 1.4rem;
+        }
+        p {
+            margin: 0;
+            font-size: 1.5rem;
+        }
+    }
+}
+
+section {
+    ul {
+        padding: 0;
+        list-style: none;
+        box-shadow: 0 0 5px 0 rgba(0, 0, 0, .1);
+        li {
+            padding: 0 10px;
+            background-color: #fff;
+            border-bottom: 1px solid #f2f2f2;
+            &:last-child {
+                border-color: transparent;
+            }
+        }
+        a {
+            position: relative;
+            display: block;
+            padding: 10px 0;
+            line-height: 20px;
+            font-size: 1.5rem;
+            white-space: nowrap;
+            overflow: hidden;
+            &:link {
+                color: #333;
+            }
+            &:visited {
+                color: #333;
+            }
+            &:hover {
+                color: #333;
+            }
+            &:active {
+                color: #333;
+            }
+            i {
+                float: left;
+                width: 20px;
+                height: 20px;
+                &.withdraw-cash {
+                    background: url(../imgs/withdraw-cash@2x.png) no-repeat center center;
+                    background-size: 100% 100%;
+                }
+                &.uncollected {
+                    background: url(../imgs/uncollected@2x.png) no-repeat center center;
+                    background-size: 100% 100%;
+                }
+                &.accumulated {
+                    background: url(../imgs/accumulated@2x.png) no-repeat center center;
+                    background-size: 100% 100%;
+                }
+            }
+            p {
+                margin-left: 34px;
+                margin-bottom: 0;
+                span {
+                    margin-left: 44px;
+                }
+            }
+            &:before {
+                content: "";
+                position: absolute;
+                top: 50%;
+                right: -8px;
+                width: 0;
+                height: 0;
+                margin-top: -8px;
+                font-size: 0;
+                overflow: 0;
+                border: 8px solid transparent;
+                border-left: 8px solid #666;
+            }
+            &:after {
+                content: "";
+                position: absolute;
+                top: 50%;
+                right: -7px;
+                width: 0;
+                height: 0;
+                margin-top: -8px;
+                font-size: 0;
+                overflow: 0;
+                border: 8px solid transparent;
+                border-left: 8px solid #fff;
+            }
+        }
+    }
+}
