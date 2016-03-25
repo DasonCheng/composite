@@ -1,0 +1,21 @@
+{
+  "name": "lib",
+  "homepage": "https://github.com/DasonCheng/newShop",
+  "authors": [
+    "Orange <dasoncheng@foxmail.com>"
+  ],
+  "description": "",
+  "main": "",
+  "moduleType": [],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "^3.3.6"
+  }
+}
