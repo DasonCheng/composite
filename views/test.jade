@@ -1,0 +1,29 @@
+doctype html
+html
+    head
+        title TEST
+        meta(charset='utf-8')
+        meta(name="viewport",content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no")
+        meta(http-equiv="X-UA-Compatible",content="IE=edge")
+        meta(name="format-detection",content="telephone=no, email=no")
+        script(src='/js/base.min.js')
+        link(rel='stylesheet' href='/lib/bower_components/animate.css/animate.min.css')
+        link(rel='stylesheet' href='/css/test.min.css')
+    body
+        div.nav TEST
+        <h1>Example</h1>
+
+
+        script(src='/lib/bower_components/jquery/dist/jquery.min.js')
+        script.
+            $.fn.extend({
+                animateCss: function (animationName) {
+                    var animationEnd = 'webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend';
+                    $(this).addClass('animated ' + animationName).one(animationEnd, function() {
+                        $(this).removeClass('animated ' + animationName);
+                    });
+                }
+            });
+            $('.nav').click(function(){
+                $(this).animateCss('zoomOutDown');
+            })

@@ -1,18 +1,22 @@
-div.class1{
-  width: 3.2rem;
-  height: 3.2rem;
-  background-color:red;
-  font-size: 20px;
-}
-div.class2{
-  width: 320px;
-  height: 320px;
-  background-color:blue;
-}
-[data-dpr="2"] div {
-    font-size: 40px;
+* {
+    padding: 0;
+    margin: 0;
 }
 
-[data-dpr="3"] div {
+div.nav {
+    width: 3.2rem;
+    height: .6rem;
+    background-color: blue;
+    font-size: 20px;
+    text-align: center;
+    line-height: .6rem;
+    color: #fff;
+}
+
+[data-dpr="2"] div.nav {
+    font-size: 30px;
+}
+
+[data-dpr="3"] div.nav {
     font-size: 60px;
 }

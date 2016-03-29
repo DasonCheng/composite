@@ -1,0 +1,11 @@
+doctype html
+html
+    head
+        title 斑马购首页
+        include includes/meta
+        link(rel='stylesheet' href='/lib/bower_components/bootstrap/dist/css/bootstrap.min.css')
+        link(rel='stylesheet' href='/css/base.min.css')
+    body
+        form(action="/upload",method="post",enctype='multipart/form-data')
+            input(type='file',name='photo')
+            input(type='submit')

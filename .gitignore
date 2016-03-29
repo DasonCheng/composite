@@ -1,2 +1,4 @@
 /node_modules
 /public/lib/bower_components
+/.sass-chache
+/.idea

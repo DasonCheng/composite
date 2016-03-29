@@ -3,7 +3,7 @@ var multer = require('multer');
 var mongoose = require('mongoose');
 var router = express.Router();
 
-var db = mongoose.connect('mongodb://banmagou:123aaAA@localhost:27017/banmagou');
+var db = mongoose.connect('mongodb://banmagou:yhetgamebanmagou@localhost:27017/banmagou');
 
 var goodsSchema = mongoose.Schema({
     id: Number,
@@ -27,7 +27,7 @@ router.get('/', function(req, res) {
     items.find().limit(10).exec(function(err, goods) {
         if (err) return console.error(err);
         res.render('index', {
-            dataValue: goods
+            goods: goods
         });
     })
 });
@@ -40,6 +40,12 @@ router.post('/', function(req, res) {
 
 router.get('/upload', function(req, res) {
     res.render('upload', {
+
+    });
+});
+
+router.get('/test', function(req, res) {
+    res.render('test', {
 
     });
 });

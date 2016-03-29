@@ -3,7 +3,180 @@ html
     head
         title 斑马购首页
         include includes/meta
-        link(rel='stylesheet' href='lib/bower_components/bootstrap/dist/css/bootstrap.min.css')
-        link(rel='stylesheet' href='css/base.css')
+        link(rel='stylesheet' href='/css/index.min.css')
     body
-      h3 Hello World !
+        header
+            form            
+                .input-group.search-box
+                    span.input-group-btn
+                        select#sort(name="sort")
+                            option(value ="最新上架") 最新上架
+                            option(value ="销量最高") 销量最高
+                            option(value ="佣金最高") 佣金最高
+                            option(value ="市价最高") 市价最高
+                            option(value ="浏览次数最高") 浏览次数最高
+                        button.btn.btn-link(type="button")
+                            span.sort-icon
+                    input#keywords.form-control(type="text",name="keywords",placeholder="请输入商品名称、品牌、功效")
+                    span.input-group-btn
+                        button.btn.btn-link(type="button")
+                            span.user-icon
+                nav.container-fluid
+                    .row
+                        a.active.col-xs-6(href="index.html")
+                            span 上架商品
+                        a.col-xs-6(href="control.html")
+                            span 商品管理
+        section
+            #sliderBanner.sliderBanner
+                ol
+                    li.active
+                    li
+                    li
+                ul
+                    li.active
+                        a(href="good.html")
+                            img(src="/imgs/banner@2x.png",alt="1")
+                    li.next
+                        a(href="good.html")
+                            img(src="/imgs/banner@2x.png",alt="2")
+                    li.prev
+                        a(href="good.html")
+                            img(src="/imgs/banner@2x.png",alt="3")
+            .menu
+                div#menu
+                    a(href="class.html#cosmetics")
+                        span
+                        p 底妆彩妆
+                    a(href="class.html#Cleaning")
+                        span
+                        p 面部护理
+                    a(href="class.html#fragrance")
+                        span
+                        p 洗护用品
+                    a(href="class.html#bodycare")
+                        span
+                        p 个人护理
+                    a(href="class.html#health")
+                        span
+                        p 营养保健
+                    a(href="class.html#hot")
+                        span
+                        p 人气爆款
+            .area.container-fluid
+                .row
+                    a.col-xs-12(href="korea.html")
+                        div.korea 
+                            img(src="/imgs/korea@2x.png",alt="korea")
+                            p I'm from Korea
+                            h3 我是来自韩国的品牌
+                    a.col-xs-6(href="japan.html")
+                        div.japan
+                            img(src="/imgs/japan@2x.png",alt="japan")
+                            p I'm from Japan
+                            h3 我来自日本
+                    a.col-xs-6(href="australia.html")
+                        div.australia
+                            img(src="/imgs/australia@2x.png",alt="australia")
+                            p I'm from Australia
+                            h3 我来自澳洲
+
+            h3.broad-class
+                strong 超高佣金
+                a.pull-right(href="#4")
+                    |更多
+                    span.glyphicon.glyphicon-menu-right
+            .goods-list.container-fluid
+                .row
+                    each items in goods
+                        a.col-xs-6(href="good.html?id="+items.id,goodsId=items.id)
+                            dl
+                                dt.sell-out
+                                    img.lazy(data-original=items.image,alt=items.name)
+                                dd
+                                    h3
+                                        strong #{items.name}
+                                dd
+                                    strong ￥#{items.price}
+                                    span
+                                        i 返佣
+                                        em ￥#{items.brokerage}
+                #upload.col-xs-12.flip
+                        span 点击加载
+
+        include includes/footer
+    script(src='/lib/bower_components/jquery/dist/jquery.min.js')
+    script(src='/lib/bower_components/jquery_lazyload/jquery.lazyload.js')
+    script(src='/js/banner.min.js')
+    script.
+        $(function(){
+            var Page = 1,
+                reload = true;
+            function upPull() {
+                if (!reload) return;
+                $('#upload span').html('正在加载');
+                $.ajax({
+                    type: 'post',
+                    url: '/',
+                    data: { page: Page },
+                    async: true, //默认为true 异步
+                    error: function() {
+                        setTimeout(function() {
+                            $('#upload').removeClass('loading').children('span').text('加载失败');
+                        }, 1000)
+                    },
+                    success: function(data) {
+                        setTimeout(function() {
+                            if (data.length > 0) {
+                                Page++;
+                                Html = '';
+                                $.each(data, function(index, item) {
+                                    Html += '<a href="good.html?id=' + item.id + '" goodsId="' + item.id + '" class="col-xs-6"><dl><dt class="sell-out"><img src="' + item.image + '" alt="' + item.name + '"></dt><dd><h3><strong>' + item.name + '</strong></h3></dd><dd><strong>￥' + item.price + '</strong><span><i>返佣</i><em>￥' + item.brokerage + '</em></span></dd></dl></a>';
+                                })
+                                $(Html).appendTo('.goods-list .row');
+                                $('#upload').removeClass('loading').children('span').text('上拉加载');
+                            } else {
+                                reload = false;
+                                $('#upload').removeClass('loading').children('span').text('已加载全部数据');
+                            }
+                        }, 1000)
+                    }
+                });
+            }
+            $(document).on('touchstart', '#upload', function(event) {
+                if (reload&&!$(this).hasClass('loading')) {
+                    $(this).addClass('loading');
+                    upPull();
+                }
+            });
+            //menu
+            var MstarX, MstarY, MendX, MendY, Mtransform, Mtranslate, MtranslateX, Xnow;
+            var menuWidth = $('.menu').width();
+            var menu = document.getElementById('menu');
+            menu.addEventListener("touchstart", function(event) {
+                Mtransform = $('#menu').css('transform');
+                Mtranslate = Mtransform.match(/[-]?\d+/g);
+                if (Mtranslate.length == 6) {
+                    MtranslateX = parseInt(Mtranslate[4]);
+                } else if (Mtranslate.length == 17) {
+                    return
+                    MtranslateX = parseInt(Mtranslate[14]);
+                }
+                MstarX = MendX = event.touches[0].clientX;
+                MstarY = MendY = event.touches[0].clientY;
+            }, false);
+            menu.addEventListener("touchmove", function(event) {
+                event.preventDefault();
+                MendX = event.changedTouches[0].clientX;
+                MendY = event.changedTouches[0].clientY;
+                Xnow = MtranslateX + MendX - MstarX;
+                Xnow = Xnow < -menuWidth / 3 ? -menuWidth / 3 : Xnow;
+                Xnow = Xnow > 0 ? 0 : Xnow;
+                $('#menu').css({
+                    'transform': 'translate3D(' + Xnow + 'px,0,0)'
+                });
+            }, false);            
+            $("img.lazy").lazyload({
+                effect : "fadeIn"
+            });
+        })

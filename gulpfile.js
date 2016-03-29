@@ -43,17 +43,17 @@ gulp.task('sass', function() {
         .pipe(gulp.dest('public/css'));
 });
 
-gulp.task('jade',function() {
-    gulp.src(paths.jade)
-        .pipe(jade({ pretty: true }))
-        .pipe(gulp.dest('public'));
-});
+// gulp.task('jade',function() {
+//     gulp.src(paths.jade)
+//         .pipe(jade({ pretty: true }))
+//         .pipe(gulp.dest('src/html'));
+// });
 
 gulp.task('watch', function() {
     gulp.watch(paths.js, ['js']);
     gulp.watch(paths.sass, ['sass']);
     gulp.watch(paths.img, ['img']);
-    gulp.watch(paths.jade, ['jade']);
+    // gulp.watch(paths.jade, ['jade']);
 });
 
 
