@@ -1,9 +1,11 @@
 var gulp = require('gulp');
 var uglify = require('gulp-uglify');
+var babel = require('gulp-babel');
 var jade = require('gulp-jade');
 var sass = require('gulp-sass');
 var imagemin = require('gulp-imagemin');
 var sourcemaps = require('gulp-sourcemaps');
+var concat = require('gulp-concat');
 var rename = require('gulp-rename');
 var del = require('del');
 
@@ -11,7 +13,7 @@ var paths = {
     js: 'origin/js/*.js',
     sass: 'origin/sass/*.scss',
     img: 'origin/imgs/*',
-    jade:'views/*.jade'
+    jade: 'views/*.jade'
 };
 gulp.task('clean', function() {
     return del(['build']);
@@ -20,7 +22,11 @@ gulp.task('clean', function() {
 gulp.task('js', function() {
     gulp.src(paths.js)
         .pipe(sourcemaps.init())
+        .pipe(babel({
+            presets: ['es2015']
+        }))
         .pipe(uglify())
+        // .pipe(concat('all.js'))
         .pipe(rename(function(path) {
             path.basename += ".min";
         }))
