@@ -1,16 +1,16 @@
 var gulp = require('gulp');
-var uglify = require('gulp-uglify'); //js压缩
-var jade = require('gulp-jade'); //jade编译
-var sass = require('gulp-sass'); //sass编译
-var imagemin = require('gulp-imagemin'); //image压缩
+var uglify = require('gulp-uglify');
+var jade = require('gulp-jade');
+var sass = require('gulp-sass');
+var imagemin = require('gulp-imagemin');
 var sourcemaps = require('gulp-sourcemaps');
 var rename = require('gulp-rename');
 var del = require('del');
 
 var paths = {
-    js: 'src/js/*.js',
-    sass: 'src/sass/*.scss',
-    img: 'src/imgs/*',
+    js: 'origin/js/*.js',
+    sass: 'origin/sass/*.scss',
+    img: 'origin/imgs/*',
     jade:'views/*.jade'
 };
 gulp.task('clean', function() {

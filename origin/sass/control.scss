@@ -1,0 +1,104 @@
+@import "global";
+ul {
+    margin-bottom: 0;
+    background-color: #fff;
+    font-size: 1.2rem;
+    -webkit-padding-start: 0;
+    list-style: none;
+    li {
+        padding:12px 0;
+        border-bottom: 1px solid #f2f2f2;
+        dl {
+            height: 100px;
+            padding: 10px 0;
+            margin-bottom: 0;
+            dt {
+                float: left;
+                width: 80px;
+                height: 80px;
+                a {
+                    display: block;
+                }
+                img {
+                    display: block;
+                    width: 80px;
+                    height: 80px;
+                    border: 1px solid #ddd;
+                }
+            }
+            dd {
+                position: relative;
+                height: 80px;
+                margin-left: 90px;
+                .good-info{
+                    height: 100%;
+                    padding-top: 8px;
+                    margin-right: 50px;
+                    h4 {
+                        height: 40px;
+                        margin-top: 0;
+                        margin-bottom: 6px;
+                        line-height: 20px;
+                        color: #333;
+                        font-size: 1.4rem;
+                        font-weight: normal;
+                        overflow: hidden;
+                    }
+                    p{
+                        margin-bottom: 0;
+                    }
+                    strong {
+                        padding: 0 3px;
+                        border-radius: 3px;
+                        color: #fff;
+                        background-color: $default-color;
+                    }
+                    em {
+                        font-size: 1.4rem;
+                        font-weight: bold;
+                        font-style: normal;
+                        color: #666;
+                        i {
+                            font-size: 1rem;
+                            font-style: normal;
+                        }
+                        &.earning {
+                            margin-right: 1rem;
+                            color: $default-color;
+                        }
+                    }
+                }
+                .good-control{
+                    float: right;
+                    width: 50px;
+                    height: 100%;
+                    a {
+                        display: block;
+                        width: 48px;
+                        height: 22px;
+                        line-height: 20px;
+                        border-radius: 3px;
+                        text-align: center;
+                        font-size: 1.3rem;
+                        background-color: #fff;
+                        &.share {
+                            color: #fff;
+                            background-color:$default-color;
+                        }
+                        &.popularize {
+                            border: 1px solid $default-color;
+                            color: $default-color;
+                        }
+                        &.unshelve {
+                            border: 1px solid #999;
+                            color: #999;
+                        }
+                        &:not(:last-child){
+                            margin-bottom: 7px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
