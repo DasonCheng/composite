@@ -13,10 +13,24 @@ div.nav {
     color: #fff;
 }
 
-[data-dpr="2"] div.nav {
-    font-size: 30px;
+h1 {
+    font-size: 20px;
 }
 
-[data-dpr="3"] div.nav {
-    font-size: 60px;
+[data-dpr="2"] {
+    div.nav {
+        font-size: 30px;
+    }
+    h1 {
+        font-size: 30px;
+    }
+}
+
+[data-dpr="3"] {
+    div.nav {
+        font-size: 60px;
+    }
+    h1 {
+        font-size: 60px;
+    }
 }

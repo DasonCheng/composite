@@ -11,10 +11,11 @@ html
         link(rel='stylesheet' href='/css/test.min.css')
     body
         div.nav TEST
-        <h1>Example</h1>
+        h1 Example
 
 
         script(src='/lib/bower_components/jquery/dist/jquery.min.js')
+        script(src='/js/babel.min.js')
         script.
             $.fn.extend({
                 animateCss: function (animationName) {
@@ -24,6 +25,6 @@ html
                     });
                 }
             });
-            $('.nav').click(function(){
+            $('h1').click(function(){
                 $(this).animateCss('zoomOutDown');
             })

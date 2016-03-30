@@ -42,10 +42,12 @@ gulp.task('img', function() {
 
 gulp.task('sass', function() {
     gulp.src(paths.sass)
+        .pipe(sourcemaps.init())
         .pipe(sass({ outputStyle: 'compressed' }).on('error', sass.logError))
         .pipe(rename(function(path) {
             path.basename += ".min";
         }))
+        .pipe(sourcemaps.write())
         .pipe(gulp.dest('public/css'));
 });
 
