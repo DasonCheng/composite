@@ -18,6 +18,7 @@
   "dependencies": {
     "bootstrap": "^3.3.6",
     "jquery_lazyload": "jquery.lazyload#^1.9.7",
-    "animate.css": "^3.5.1"
+    "animate.css": "^3.5.1",
+    "echarts": "^3.1.5"
   }
 }
