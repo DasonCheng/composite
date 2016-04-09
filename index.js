@@ -9,11 +9,11 @@ var app = express();
 app.set('port', process.env.PORT || 3000);
 app.set('views',__dirname+'/views');
 
-// app.set('view engine','jade');
-app.engine('html', exphbs({
+app.set('view engine','jade');
+/*app.engine('html', exphbs({
     extname: '.html'
 }));
-app.set('view engine', 'html');
+app.set('view engine', 'html');*/
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));

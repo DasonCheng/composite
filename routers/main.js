@@ -22,7 +22,7 @@ router.use(function timeLog(req, res, next) {
     console.log('Time: ', Date.now());
     next();
 });
-/*
+
 router.get('/', function(req, res) {
     items.find().limit(10).exec(function(err, goods) {
         if (err) return console.error(err);
@@ -87,13 +87,13 @@ router.post('/upload', function(req, res) {
         res.status(204).end();
         // Everything went fine
     });
-});*/
-router.get('/', function(req, res) {
+});
+/*router.get('/', function(req, res) {
     items.find().limit(10).exec(function(err, goods) {
         if (err) return console.error(err);
         res.render('home', {
             goods: goods
         });
     });
-});
+});*/
 module.exports = router;
