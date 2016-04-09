@@ -1,6 +1,6 @@
 # composite
-echarts
-lazy-load
-upload
-scale
-mongoose
+*echarts
+*lazy-load
+*upload
+*scale
+*mongoose
