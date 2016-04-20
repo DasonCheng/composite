@@ -49,6 +49,11 @@ router.get('/test', function(req, res) {
 
     });
 });
+router.get('/video', function(req, res) {
+    res.render('video', {
+
+    });
+});
 router.get('/echarts', function(req, res) {
     res.render('echarts', {
 
